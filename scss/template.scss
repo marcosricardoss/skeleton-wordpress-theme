@@ -12,12 +12,16 @@
 1	GLOBAL
 ////////////////////////////////////////////////////////////////////////////*/
 
+$primary_color: #333333;
+$primary_color_footer: #cccccc;
+$primary_font: 'Lato', sans-serif;
+
 html, body {
 	height: 100%;	
 }
 body {	
-	color: #333333;
-	font-family: 'Lato', sans-serif;	
+	color: $primary_color;
+	font-family: $primary_font;	
 	font-weight: 400;
 	margin: 0 auto;
 	padding: 0;
@@ -27,7 +31,7 @@ img {
 	height: auto;
 }
 a {
-	color: #333333;
+	color: $primary_color;
 	text-decoration: none;
 }
 .inner {
@@ -41,25 +45,28 @@ a {
 /*////////////////////////////////////////////////////////////////////////////
 2	SIDEBAR
 ////////////////////////////////////////////////////////////////////////////*/
-#sidebar h4 {
-	margin: 8px 0;
-}
-#sidebar ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
 
-#sidebar #tags ul {
-	display: flex;
-	flex-wrap: wrap;
-}
+#sidebar {
+	h4 {
+		margin: 8px 0;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
-#sidebar #tags ul li a {
-	border-radius: 5px;
-	background: #ccc;	
-	margin: 2px;
-	padding: 4px;
+	#tags ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	#tags ul li a {
+		border-radius: 5px;
+		background: #ccc;	
+		margin: 2px;
+		padding: 4px;
+	}
 }
 
 /*////////////////////////////////////////////////////////////////////////////
@@ -69,21 +76,17 @@ a {
 #header {
 	text-align: center;
 	margin-bottom: 50px;
+	#logo a {
+		color: $primary_color;;
+		font-weight: 300;
+		text-decoration: none;
+	}	
+	.menu li {
+		height: auto;
+		text-transform: uppercase;
+	}
 }
 
-#header #logo {
-	
-}
-#header #logo a {
-	color: #333333;
-	font-weight: 300;
-	text-decoration: none;
-}
-
-#header .menu li {
-	height: auto;
-	text-transform: uppercase;
-}
 
 /*////////////////////////////////////////////////////////////////////////////
 4 Main Content
@@ -92,25 +95,24 @@ a {
 #main #content-container {
 	display: flex;
 	flex-direction: column;
-}
-#main #content-container #page-content {
-	flex: 1;
-	margin-right: 20px;
-	
-}
-#main #content-container #sidebar {
-	margin-top: 50px;
-	width: 100%;
+	#page-content {
+		flex: 1;
+		margin-right: 20px;		
+	}
+	#sidebar {
+		margin-top: 50px;
+		width: 100%;
+	}
 }
 
 @media (min-width: 1024px) {
 	#main #content-container {
 		flex-direction: row;
+		#sidebar {
+			margin: 0;
+			width: 25%;
+		}	
 	}
-	#main #content-container #sidebar {
-		margin: 0;
-		width: 25%;
-	}	
 }
 
 /*////////////////////////////////////////////////////////////////////////////
@@ -118,11 +120,11 @@ a {
 ////////////////////////////////////////////////////////////////////////////*/
 
 #footer {
-	border-top: 1px solid #cccccc;
+	border-top: 1px solid $primary_color_footer;
 	text-align: center;
 	margin-top: 40px;
-}
-#footer a {
-	color: #cccccc;
-	text-decoration: none;
+	a {
+		color: $primary_color_footer;
+		text-decoration: none;
+	}
 }
